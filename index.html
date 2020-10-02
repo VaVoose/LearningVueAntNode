@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+    </head>
+
+    <body>
+      <script src="node_modules/vue/dist/vue.min.js"></script>
+        
+      <div id="app" v-bind:title="message2" v-if="seen">
+        {{ message }}
+        <ol>
+          <li v-for="todo in todos">
+            {{todo.text}}
+          </li>
+        </ol>
+        <p>{{ message3 }}</p>
+          <input v-model="message3">
+        </div>
+
+        <div id="app-5">
+          <p>{{ message }}</p>
+          <button v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+        
+        <div>
+          This is some text in a div 
+        </div>
+
+        <script src="app.js"></script>
+    </body>
+</html>
