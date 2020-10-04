@@ -8,6 +8,7 @@
     <body>
       <script src="node_modules/vue/dist/vue.min.js"></script>
         
+      <!-- Hover over and see the message-->
       <div id="app" v-bind:title="message2" v-if="seen">
         {{ message }}
         <ol>
@@ -21,7 +22,20 @@
 
         <div id="app-5">
           <p>{{ message }}</p>
+          <!-- user v-once to bind data once at "compile time"-->
+          <p v-once> This message does not change: {{ message }}</p>
           <button v-on:click="reverseMessage">Reverse Message</button>
+        </div>
+
+        <div id="app2">
+          <ol>
+            <!-- Custom Grocery List Tag that I created-->
+            <grocery-list 
+              v-for="item in groceryList" 
+              v-bind:items="item" 
+              v-bind:key="item.id"
+            ></grocery-list>
+          </ol>
         </div>
         
         <div>
