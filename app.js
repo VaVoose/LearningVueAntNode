@@ -1,5 +1,5 @@
-//var msg = "Hello World";
-//console.log(msg);
+var msg = "Hello World";
+console.log(msg);
 Vue.component('grocery-list', {
   props: ["items"],
   template: '<li> {{ items.text }} </li>'
@@ -14,7 +14,6 @@ var app2 = new Vue({
       {id: 3, text: "Cheese"}
     ]
   }
-
 })
 
 
