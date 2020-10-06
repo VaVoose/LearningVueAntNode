@@ -1,5 +1,8 @@
 var msg = "Hello World";
 console.log(msg);
+
+//Dom made a branch
+
 Vue.component('grocery-list', {
   props: ["items"],
   template: '<li> {{ items.text }} </li>'
