@@ -8,6 +8,52 @@ Vue.component('grocery-list', {
   template: '<li> {{ items.text }} </li>'
 });
 
+var ani = new Vue({
+  el: "#animation",
+  data:{
+    isOpen: true
+  },
+  methods:{
+    toggleAcordian: function() {
+      this.isOpen = !this.isOpen;
+    }
+  },
+  computed: {
+    acordianClasses: function() {
+      return {
+        'is-closed': !this.isOpen,
+        'is-primary': this.isOpen,
+        'is-dark': !this.isOpen
+      }
+    }
+  }
+});
+
+const users = [
+  {name: "dominic", profession: "programmer", age:"21"},
+  {name: "wayne", profession:"designer", age: "21"},
+  {name: "will", profession: "Framework Dev", age: "22"}
+];
+
+const p = new Vue({
+  el:"#application",
+  data: {
+    users: users,
+    myStyle: {
+      backgroundColor: "red",
+      color: "#FFFFFF",
+      fontSize: "20px"
+    },
+    count: 0
+  },
+
+  methods: {
+    incrementCounter: function() {
+      this.count += 1;
+    }
+  }
+});
+
 var app2 = new Vue({
   el: "#app2",
   data: {
@@ -17,8 +63,7 @@ var app2 = new Vue({
       {id: 3, text: "Cheese"}
     ]
   }
-})
-
+});
 
 var app1 = new Vue({
     el: '#app',
@@ -46,6 +91,6 @@ var app5 = new Vue({
       this.message = this.message.split('').reverse().join('')
     }
   }
-})
+});
 
 

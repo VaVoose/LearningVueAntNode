@@ -2,20 +2,72 @@
 
 <html>
     <head>
-        
+      <title>Learning Vue</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+      <style>
+        .message {
+          max-width: 500px;
+          margin-left:auto;
+          margin-right:auto;
+        }
+
+        .message-body {
+          padding: 0;
+          max-height: 10em;
+          overflow: hidden;
+          transition: 0.3s ease all;
+        }
+
+        .is-closed .message-body {
+          max-height: 0px;
+        }
+
+        .message-content {
+          padding: 20px;
+        }
+      </style>
     </head>
 
     <body>
       <script src="node_modules/vue/dist/vue.min.js"></script>
+      <br>
+      <div id="animation">
+        <article class="message" :class="acordianClasses">
+          <div class="message-header" @click="toggleAcordian"> Hello Animations </div>
+          <div class="message-body">
+            <div class="message-content">
+              Lorum Ipsim lalalal dadadada something fun here
+              <strong> Super califrajalistic </strong>
+            </div>
+          </div>
+        </article>
+      </div>
 
-      <div>
-        <p>
+      <div id="application">
+        <ul>
+          <li v-for="user in users" >
+            Name: {{ user.name }} <br>
+            Job: {{ user.profession }} <br>
+            Age: {{ user.age }}
+          </li>
+        </ul>
+        <!--Taking style from vue object-->
+        <p v-bind:style="myStyle">
           peepeepoopoo
         </p>
+
+        <h1 class="title">Counter!</h1>
+        <div>
+          <h2 class="title">{{count}}</h2>
+          <button v-on:click="incrementCounter">Click Me!</button>
+        </div>
       </div>
         
       <!-- Hover over and see the message-->
       <div id="app" v-bind:title="message2" v-if="seen">
+        <!-- This is called interpolation or injection-->
         {{ message }}
         <ol>
           <li v-for="todo in todos">
@@ -36,10 +88,11 @@
         <div id="app2">
           <ol>
             <!-- Custom Grocery List Tag that I created-->
+            <!--v-bind is bnding data to attributes-->
             <grocery-list 
               v-for="item in groceryList" 
               v-bind:items="item" 
-              v-bind:key="item.id"
+              :key="item.id"
             ></grocery-list>
           </ol>
         </div>
