@@ -8,6 +8,46 @@ Vue.component('grocery-list', {
   template: '<li> {{ items.text }} </li>'
 });
 
+const greetingComponent = Vue.component('greetingComponent', {
+    template: '<h1> Hello, How are you? </h1>'
+});
+
+var t = new Vue({
+  el: "#templateComp",
+  template: "<div class='isPrimary'> <greetingComponent /> </div>",
+  //This is how you add dependant components to a component
+  components: {
+    greetingComponent
+  }
+});
+
+var f = new Vue({
+  template: "#fancy",
+  data: function() {
+    return {
+      voila: "VOILA!"
+    }
+  }
+}).$mount("#fancy");
+
+var lc = new Vue({
+  el:"#lifecycle",
+  data: {
+    onCreated: null
+  },
+
+  methods: {
+    insertMessage: function(newMessage) {
+      this.onCreated = newMessage;
+    }
+  },
+
+  created: function(){
+    this.insertMessage("I was created!");
+  }
+
+});
+
 var ani = new Vue({
   el: "#animation",
   data:{
@@ -51,6 +91,10 @@ const p = new Vue({
     incrementCounter: function() {
       this.count += 1;
     }
+  },
+
+  updated: function(){
+    console.log("this vue was updated!");
   }
 });
 
@@ -80,10 +124,14 @@ var app1 = new Vue({
     }
 });
 
+
 var app5 = new Vue({
   el: '#app-5',
-  data: {
-    message: 'Hello Vue.js!'
+  //Returning data as an object from a function
+  data: function () {
+    return {
+      message: 'Hello Vue.js!'
+    }
   },
   methods: {
     //Don't user Arrow functions -> Arrow functions mean "this.__" will not work properly

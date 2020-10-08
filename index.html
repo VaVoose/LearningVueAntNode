@@ -33,6 +33,18 @@
     <body>
       <script src="node_modules/vue/dist/vue.min.js"></script>
       <br>
+      <div id="#templateComp">
+        
+      </div>
+      <br>
+      <div id="fancy">
+        <p> {{voila}} </p>
+      </div>
+      <br>
+      <div id="lifecycle">
+        {{ onCreated }}
+      </div>
+      <br>
       <div id="animation">
         <article class="message" :class="acordianClasses">
           <div class="message-header" @click="toggleAcordian"> Hello Animations </div>
